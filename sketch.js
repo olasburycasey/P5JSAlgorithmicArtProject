@@ -26,6 +26,15 @@ function setup() {
   for (let i = 0; i < 100; i++) {
     drops.push({ x: random(width), y: random(height), speed: random(8, 16) });
   }
+
+    // In setup(), add a styled start button:
+  let btn = createButton('🎤 Click to Start');
+  btn.position(350, 380);
+  btn.mousePressed(async () => {
+    await userStartAudio();
+    mic.start();
+    btn.remove();
+  });
 }
 
 function mousePressed() {
