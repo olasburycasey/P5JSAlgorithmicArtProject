@@ -15,7 +15,6 @@ function setup() {
   angleMode(DEGREES);
   
   mic = new p5.AudioIn();
-  mic.start();
   
   skyBlue = color(135, 206, 235);
   skyWhite = color(255);
@@ -27,6 +26,11 @@ function setup() {
   for (let i = 0; i < 100; i++) {
     drops.push({ x: random(width), y: random(height), speed: random(8, 16) });
   }
+}
+
+function mousePressed() {
+  userStartAudio();
+  mic.start();
 }
 
 function draw() {
